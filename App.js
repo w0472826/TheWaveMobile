@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 export default function App() {
 
   const [image, setImage] = useState(null);
+  const [title, setTitle] = useState('');
 
   // Function to choose photo on phone
   const pickImage = async() => {
@@ -30,12 +31,8 @@ export default function App() {
           style={ styles.input } 
           placeholder="Title"
           onChangeText={ text => setTitle(text) } 
-          defaultValue= { title } />
-      <TextInput 
-          style={ styles.input } 
-          placeholder="Content"
-          onChangeText={ text => setTitle(text) } 
-          defaultValue= { title } />
+          defaultValue= {title}/>
+      
       <Button title="Choose an Image" onPress={pickImage}></Button>
       {image && <Image source={{uri:image}} sytle={{width:250, height:250, resizeMode:'cover'}}/>}
       
