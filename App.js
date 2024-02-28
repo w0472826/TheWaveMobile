@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import {NavigationContainer, StackActions} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+function HomeScreen ({navigation}){
 
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
@@ -38,6 +42,17 @@ export default function App() {
       
       <StatusBar style="auto" />
     </View>
+  );
+}
+
+export default function App() {
+
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Home' component={ HomeScreen } options={{ title: 'The Wave' }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
