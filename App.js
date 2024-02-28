@@ -11,6 +11,7 @@ function HomeScreen ({navigation}){
 
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   // Function to choose photo on phone
   const pickImage = async() => {
@@ -24,7 +25,7 @@ function HomeScreen ({navigation}){
     
     if(!result.canceled){
       const uri = result.assets[0].uri;
-      console.log('URI: ' + uri);
+     
       setImage(uri);
     }
   }
