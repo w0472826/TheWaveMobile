@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
@@ -26,6 +26,16 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>The Wave</Text>
+      <TextInput 
+          style={ styles.input } 
+          placeholder="Title"
+          onChangeText={ text => setTitle(text) } 
+          defaultValue= { title } />
+      <TextInput 
+          style={ styles.input } 
+          placeholder="Content"
+          onChangeText={ text => setTitle(text) } 
+          defaultValue= { title } />
       <Button title="Choose an Image" onPress={pickImage}></Button>
       {image && <Image source={{uri:image}} sytle={{width:250, height:250, resizeMode:'cover'}}/>}
       
@@ -41,4 +51,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  input: {
+    height: 40,
+    marginBottom: 10,
+    borderWidth: 1,
+    padding: 10,
+    width: 300,
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'slateblue',
+    marginBottom: 10,
+  },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: 'white',
+  }
+
 });
