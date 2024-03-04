@@ -17,6 +17,7 @@
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-base64": "^0.2.1",
+    "react-native-picker-select": "^9.0.1",
     "react-native-screens": "^3.29.0"
   },
   "devDependencies": {
